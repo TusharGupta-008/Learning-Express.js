@@ -10,7 +10,7 @@ app.use((req, res, next) => {
 });
 app.use((req, res, next) => {
   console.log("Coming in Second middleware", req.url, res.url);
-  next();
+  res.send("<h1>I love Pragya so much!!!!!</h1>")
 });
 
 
