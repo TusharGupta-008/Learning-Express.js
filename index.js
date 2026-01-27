@@ -1,19 +1,19 @@
-const express = require("express");
+const express = require ("express");
+
 const app = express();
 
-const Port = 3000;
 
 
-app.use((req, res, next) => {
-  console.log("Coming in first middleware", req.url, res.url);
+app.use("/",(req,res,next)=>{
+  res.send(`<h1>Welcome to airbnb</h1>`);
   next();
-});
-app.use((req, res, next) => {
-  console.log("Coming in Second middleware", req.url, res.url);
-  res.send("<h1>I love Pragya so much!!!!!</h1>")
-});
+
+})
 
 
-app.listen(Port, () => {
-  console.log(`Example app listening on port ${Port}`);
-});
+
+const PORT = 3000;
+app.listen(PORT,()=>{
+  console.log(`Your Server is runnning onhttp://localhost:${PORT}/ `)
+
+})
