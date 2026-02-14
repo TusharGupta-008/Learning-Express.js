@@ -1,24 +1,15 @@
+// External Module
 const express = require("express");
 const hostRouter = express.Router();
 
-hostRouter.get("/enquiry", (req, res, next) => {
-  res.send(`
-    <form action = "/enquiry-completed" method= "POST">
-    <input type="text" name="username" placeholder="Enter your name" required />
-    <br><br>
-    <input type = "submit" value="Submit">
-    </form>
+// Local Module
+const hostController = require("../controllers/hostController");
 
-   
-    `);
-});
-hostRouter.post("/enquiry-completed", (req, res, next) => {
-  console.log(req.body);
-  res.send(`<h3> We got your details
-    </h3>
-    <a href = "/">Home</a>
-    
-    `);
-});
+hostRouter.get("/add-home", hostController.getAddHome);
+hostRouter.post("/add-home", hostController.postAddHome);
+hostRouter.get("/host-home-list", hostController.getHostHomes);
+hostRouter.get("/edit-home/:homeId", hostController.getEditHome);
+hostRouter.post("/edit-home", hostController.postEditHome);
+hostRouter.post("/delete-home/:homeId", hostController.postDeleteHome);
 
 module.exports = hostRouter;
