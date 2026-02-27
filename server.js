@@ -1,19 +1,33 @@
 const express = require("express");
-const mongooose = require('mongoose')
+const mongooose = require("mongoose");
+const path = require('path')
+const userModel = require("./Models/User.model");
 
 const app = express();
- mongooose.connect("mongodb+srv://tushar-backend:zoA6Nd4NpF8p05IM@cluster0.sgjjbia.mongodb.net/",{
-  dbName:"NodeJs Course"
- }
+mongooose
+  .connect(
+    "mongodb+srv://tushar-backend:zoA6Nd4NpF8p05IM@cluster0.sgjjbia.mongodb.net/",
+    {
+      dbName: "NodeJs_Course",
+    },
+  )
+  .then(() => {
+    console.log("MongoDb connected..!!!");
+  })
+  .catch((err) => {
+    console.log(err);
+  });
 
- ).then(()=>{console.log("MongoDb connected..!!!")}).catch
- ((err)=>{
-  console.log(err)
- })
+
+  const url = path.join(path.resolve(),"index")
+
+app.get("/", (req, res) => {
+  res.sen
+});
 
 
 const port = 3000;
 
 app.listen(port, (req, res) => {
-  console.log("Your Server is ready !!!!");
+  console.log("Your Server is ready !!!!")
 });
