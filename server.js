@@ -1,36 +1,19 @@
-const express = require("express")
-const path = require("path")
+const express = require("express");
+const mongooose = require('mongoose')
 
-const app = express()
+const app = express();
+ mongooose.connect("mongodb+srv://tushar-backend:zoA6Nd4NpF8p05IM@cluster0.sgjjbia.mongodb.net/",{
+  dbName:"NodeJs Course"
+ }
 
-
-
-app.get("/",(req,res)=>{
-  // res.send("<h1>Helooo</h1>")
-
-  // const dir = path.resolve();
-  
-
-  // const url = path.join(path.resolve(),("./index.html"))
-  // console.log("Full path: ",url)
-
-  // res.sendFile(url)
-  let name = "pragya";
-
-  res.render('index.ejs', {name})
-})
+ ).then(()=>{console.log("MongoDb connected..!!!")}).catch
+ ((err)=>{
+  console.log(err)
+ })
 
 
+const port = 3000;
 
-
-
-
-
-
-
-
-const port = 3000
-
-app.listen(port,(req,res)=>{
-  console.log("Your Server is ready !!!!")
-})
+app.listen(port, (req, res) => {
+  console.log("Your Server is ready !!!!");
+});
