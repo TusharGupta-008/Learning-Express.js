@@ -3,7 +3,13 @@ const mongooose = require("mongoose");
 const path = require('path')
 const userModel = require("./Models/User.model");
 
+
+
 const app = express();
+
+
+app.set("view engine", "ejs");
+
 mongooose
   .connect(
     "mongodb+srv://tushar-backend:zoA6Nd4NpF8p05IM@cluster0.sgjjbia.mongodb.net/",
@@ -18,16 +24,12 @@ mongooose
     console.log(err);
   });
 
-
-  const url = path.join(path.resolve(),"index")
+const url = path.join(path.resolve(),"index")
 
 app.get("/", (req, res) => {
-  res.sen
+  res.render("index")
 });
 
-
-const port = 3000;
-
-app.listen(port, (req, res) => {
+app.listen(3000, (req, res) => {
   console.log("Your Server is ready !!!!")
 });
