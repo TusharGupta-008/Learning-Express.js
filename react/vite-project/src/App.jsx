@@ -1,6 +1,11 @@
+import Counter from "./Counter";  
+  
+  
+  
   function App(){
     return (
-      <h1>Hello</h1>
+      <Counter/>
+      
     )
   }
 
